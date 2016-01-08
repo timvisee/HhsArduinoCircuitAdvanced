@@ -1,5 +1,5 @@
 /**
- * NumberGuessGame.
+ * HhsArduinoCircuitAdvanced.
  * An Arduino challenge for HHS by Tim Visee.
  *
  * @author Tim Visee
