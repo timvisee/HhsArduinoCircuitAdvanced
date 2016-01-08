@@ -13,17 +13,25 @@
  */
 
 #include <Arduino.h>
+#include "Core.h"
+
+/**
+ * Core instance. For all basic logic.
+ */
+Core core;
 
 /**
  * Called one on set up.
  */
 void setup() {
-
+    // Route the setup call to the core class
+    core.setup();
 }
 
 /**
  * Called each loop.
  */
 void loop() {
-
+    // Route the loop call to the core class
+    core.gameLogic();
 }
