@@ -1,5 +1,5 @@
 /**
- * NumberGuessGame.
+ * HhsArduinoCircuitAdvanced.
  * An Arduino challenge for HHS by Tim Visee.
  *
  * @author Tim Visee
@@ -20,6 +20,8 @@
 #include "Random.h"
 #include "Timer.h"
 #include "Stopwatch.h"
+
+// TODO: Complete this class.
 
 /**
  * Core class.
