@@ -6,8 +6,8 @@
  * @website http://timvisee.com/
  */
 
-#ifndef NUMBERGUESSGAME_BUTTON_H
-#define NUMBERGUESSGAME_BUTTON_H
+#ifndef HHSARDUINOCIRCUITADVANCED_BUTTON_H
+#define HHSARDUINOCIRCUITADVANCED_BUTTON_H
 
 #include <Arduino.h>
 
@@ -129,4 +129,4 @@ public:
     bool isLockedUntil();
 };
 
-#endif //NUMBERGUESSGAME_BUTTON_H
+#endif //HHSARDUINOCIRCUITADVANCED_BUTTON_H

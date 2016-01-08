@@ -6,8 +6,8 @@
  * @website http://timvisee.com/
  */
 
-#ifndef NUMBERGUESSGAME_LED_H
-#define NUMBERGUESSGAME_LED_H
+#ifndef HHSARDUINOCIRCUITADVANCED_LED_H
+#define HHSARDUINOCIRCUITADVANCED_LED_H
 
 #include <Arduino.h>
 
@@ -206,4 +206,4 @@ public:
     int getFadeTimeLeft();
 };
 
-#endif //NUMBERGUESSGAME_LED_H
+#endif //HHSARDUINOCIRCUITADVANCED_LED_H

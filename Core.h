@@ -6,8 +6,8 @@
  * @website http://timvisee.com/
  */
 
-#ifndef NUMBERGUESSGAME_CORE_H
-#define NUMBERGUESSGAME_CORE_H
+#ifndef HHSARDUINOCIRCUITADVANCED_CORE_H
+#define HHSARDUINOCIRCUITADVANCED_CORE_H
 
 #include <Arduino.h>
 #include "Globals.h"
@@ -107,4 +107,4 @@ public:
     uint8_t generateNewGameNumber();
 };
 
-#endif //NUMBERGUESSGAME_CORE_H
+#endif //HHSARDUINOCIRCUITADVANCED_CORE_H
