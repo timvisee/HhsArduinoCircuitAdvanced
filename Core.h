@@ -67,7 +67,7 @@ public:
     /**
      * Called each loop.
      */
-    void gameLogic();
+    void loop();
 
     /**
      * Method used to update all game logic.

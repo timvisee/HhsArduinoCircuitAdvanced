@@ -177,7 +177,7 @@ void Core::connect() {
     smartDelay(START_DELAY);
 }
 
-void Core::gameLogic() {
+void Core::loop() {
     // Show the slide animation before showing the number
     playSlideAnimation();
     smartDelay(400);
