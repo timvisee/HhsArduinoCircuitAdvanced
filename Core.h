@@ -11,38 +11,14 @@
 
 #include <Arduino.h>
 #include "Globals.h"
-#include "LedManager.h"
 #include "Led.h"
-#include "ButtonManager.h"
 #include "Button.h"
-#include "ConnectionManager.h"
-#include "PacketHandler.h"
-#include "Random.h"
-#include "Timer.h"
-#include "Stopwatch.h"
-
-// TODO: Complete this class.
 
 /**
  * Core class.
  */
 class Core {
 private:
-    /**
-     * Software serial instance, to communicate to the other Arduino when doing a multiplayer game.
-     */
-    AltSoftSerial con;
-
-    /**
-     * Timer to decide whether to continue in the connection method.
-     */
-    Timer connectTimerWait;
-
-    /**
-     * The current game number.
-     */
-    uint8_t gameNumber;
-
     /**
      * Flag whether the device has been fully started or not.
      */
@@ -60,11 +36,6 @@ public:
     void setup();
 
     /**
-     * Connect to an arduino when in multiplayer mode.
-     */
-    void connect();
-
-    /**
      * Called each loop.
      */
     void loop();
@@ -78,33 +49,6 @@ public:
      * A smart delay method, to efficiently execute the update call while waiting.
      */
     void smartDelay(int delay);
-
-    /**
-     * Play the startup animation on the screen.
-     */
-    void playStartupAnimation();
-
-    /**
-     * Play the slide animation on the screen.
-     */
-    void playSlideAnimation();
-
-    /**
-     * Play the seek animation on the screen.
-     */
-    void playSeekAnimation();
-
-    /**
-     * Show a number on the screen.
-     */
-    void showNumber(uint8_t number);
-
-    /**
-     * Generate a new game number.
-     *
-     * @return Generated number.
-     */
-    uint8_t generateNewGameNumber();
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_CORE_H
