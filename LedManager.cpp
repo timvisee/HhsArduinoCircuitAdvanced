@@ -8,5 +8,5 @@
 
 #include "LedManager.h"
 
-Led *LedManager::screenLeds = new Led[SCREEN_LED_COUNT];
+Led *LedManager::inputLeds = new Led[SCREEN_LED_COUNT];
 Led LedManager::statusLed = Led(Led::STATUS_LED_PIN, Led::STATUS_LED_ANALOG);

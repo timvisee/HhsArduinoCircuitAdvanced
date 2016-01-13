@@ -19,9 +19,9 @@
 class LedManager {
 public:
     /**
-     * Screen LED instances.
+     * InputLED instances.
      */
-    static Led * screenLeds;
+    static Led *inputLeds;
 
     /**
      * Status LED instance.
