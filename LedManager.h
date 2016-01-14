@@ -6,8 +6,8 @@
  * @website http://timvisee.com/
  */
 
-#ifndef NUMBERGUESSGAME_LEDMANAGER_H
-#define NUMBERGUESSGAME_LEDMANAGER_H
+#ifndef HHSARDUINOCIRCUITADVANCED_LEDMANAGER_H
+#define HHSARDUINOCIRCUITADVANCED_LEDMANAGER_H
 
 #include <Arduino.h>
 #include "Globals.h"
@@ -29,4 +29,4 @@ public:
     static Led statusLed;
 };
 
-#endif //NUMBERGUESSGAME_LEDMANAGER_H
+#endif //HHSARDUINOCIRCUITADVANCED_LEDMANAGER_H
