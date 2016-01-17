@@ -24,9 +24,9 @@ public:
     static Led *inputLeds;
 
     /**
-     * Status LED instance.
+     * Output LED instance.
      */
-    static Led statusLed;
+    static Led outputLed;
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_LEDMANAGER_H
