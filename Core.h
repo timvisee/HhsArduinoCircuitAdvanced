@@ -12,6 +12,7 @@
 #include <Arduino.h>
 #include "Globals.h"
 #include "Led.h"
+#include "LedManager.h"
 #include "Button.h"
 
 /**

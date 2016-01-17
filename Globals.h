@@ -25,12 +25,22 @@ const int LED_INPUT_COUNT = 4;
 /**
  * The pin's of the input LEDs;
  */
-const int LED_INPUT_PIN[LED_INPUT_COUNT] = {5, 6, 9, 10};
+const uint8_t LED_INPUT_PIN[LED_INPUT_COUNT] = {5, 6, 9, 10};
+
+/**
+ * Defines whether the input LED's are in analog or digital mode.
+ */
+const bool LED_INPUT_ANALOG = true;
 
 /**
  * The pin of the output LED.
  */
 const int LED_OUTPUT_PIN = 12;
+
+/**
+ * Defines whether the output LED is in analog or digital mode.
+ */
+const bool LED_OUTPUT_ANALOG = false;
 
 /**
  * Defines the pin of the button that is used to shift the LED that should be toggled.

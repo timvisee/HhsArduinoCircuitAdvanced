@@ -12,17 +12,15 @@ Core::Core() {
     // Set the started flag
     this->started = false;
 
-    // Initialize the screen LED array
-    LedManager::screenLeds = new Led[SCREEN_LED_COUNT];
+    // Initialize the input LED array
+    LedManager::inputLeds = new Led[LED_INPUT_COUNT];
 
     // Construct the screen LED instances
-    for(int i = 0; i < SCREEN_LED_COUNT; i++)
-        LedManager::screenLeds[i] = Led(SCREEN_LED_PINS[i], SCREEN_LED_ANALOG);
+    for(int i = 0; i < LED_INPUT_COUNT; i++)
+        LedManager::inputLeds[i] = Led(LED_INPUT_PIN[i], LED_INPUT_ANALOG);
 
-    // Set up the other LEDs
-    LedManager::greenLed = Led(GREEN_LED_PIN, GREEN_LED_ANALOG);
-    LedManager::redLed = Led(RED_LED_PIN, RED_LED_ANALOG);
-    LedManager::statusLed = Led(Led::STATUS_LED_PIN, Led::STATUS_LED_ANALOG);
+    // Set up the output LED
+    LedManager::outputLed = Led(LED_OUTPUT_PIN, LED_OUTPUT_ANALOG);
 
     // Initialize the button
     ButtonManager::button = Button(BUTTON_PIN);
