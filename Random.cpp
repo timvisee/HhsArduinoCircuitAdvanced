@@ -25,7 +25,7 @@ void Random::randomize() {
         seed *= analogRead((uint8_t) i);
 
     // Set the actual seed
-    setSeed((unsigned int) analogRead(0));
+    setSeed(seed);
 }
 
 void Random::setSeed(unsigned int seed) {
