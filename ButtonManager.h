@@ -6,8 +6,8 @@
  * @website http://timvisee.com/
  */
 
-#ifndef NUMBERGUESSGAME_BUTTONMANAGER_H
-#define NUMBERGUESSGAME_BUTTONMANAGER_H
+#ifndef HHSARDUINOCIRCUITADVANCED_BUTTONMANAGER_H
+#define HHSARDUINOCIRCUITADVANCED_BUTTONMANAGER_H
 
 #include <Arduino.h>
 #include "Globals.h"
@@ -24,4 +24,4 @@ public:
     static Button button;
 };
 
-#endif //NUMBERGUESSGAME_BUTTONMANAGER_H
+#endif //HHSARDUINOCIRCUITADVANCED_BUTTONMANAGER_H
