@@ -46,6 +46,17 @@ public:
      * Set the current random seed.
      */
     static void setSeed(unsigned int seed);
+
+    /**
+     * Get a random number, that isn't based of a seed. The main random instance isn't used to generate this number.
+     * This can be used to properly seed the current random instance with a number that is as random as possible.
+     *
+     * The returned value is 1 or greater.
+     * The limit of the returned number isn't specified, and can differ greatly over time.
+     *
+     * @return A random number.
+     */
+    static unsigned int nextIntWithoutSeed();
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_RANDOM_H
