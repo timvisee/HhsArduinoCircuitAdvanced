@@ -17,15 +17,7 @@ int Random::nextInt(int min, int max) {
 }
 
 void Random::randomize() {
-    // Define the new seed variable
-    unsigned int seed = 1;
-
-    // Create a semi-random number to use as seed
-    for(int i = 0; i < 6; i++)
-        seed *= analogRead((uint8_t) i);
-
-    // Set the actual seed
-    setSeed(seed);
+    setSeed(Random::nextIntWithoutSeed());
 }
 
 void Random::setSeed(unsigned int seed) {
