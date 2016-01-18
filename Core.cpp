@@ -7,6 +7,7 @@
  */
 
 #include "Core.h"
+#include "ButtonManager.h"
 
 Core::Core() {
     // Set the started flag
@@ -23,8 +24,9 @@ Core::Core() {
     LedManager::outputLed = Led(LED_OUTPUT_PIN, LED_OUTPUT_ANALOG);
     LedManager::statusLed = Led(Led::STATUS_LED_PIN, Led::STATUS_LED_ANALOG);
 
-    // Initialize the button
-    ButtonManager::button = Button(BUTTON_PIN);
+    // Initialize the buttons
+    ButtonManager::toggleButton = Button(BUTTON_TOGGLE_PIN);
+    ButtonManager::shiftButton = Button(BUTTON_SHIFT_PIN);
 }
 
 void Core::setup() {
