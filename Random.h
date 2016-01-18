@@ -6,8 +6,8 @@
  * @website http://timvisee.com/
  */
 
-#ifndef NUMBERGUESSGAME_RANDOM_H
-#define NUMBERGUESSGAME_RANDOM_H
+#ifndef HHSARDUINOCIRCUITADVANCED_RANDOM_H
+#define HHSARDUINOCIRCUITADVANCED_RANDOM_H
 
 #include <Arduino.h>
 
@@ -48,4 +48,4 @@ public:
     static void setSeed(unsigned int seed);
 };
 
-#endif //NUMBERGUESSGAME_RANDOM_H
+#endif //HHSARDUINOCIRCUITADVANCED_RANDOM_H
