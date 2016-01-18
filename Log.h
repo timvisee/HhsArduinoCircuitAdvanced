@@ -6,12 +6,12 @@
  * @website http://timvisee.com/
  */
 
-#ifndef NUMBERGUESSGAME_LOG_H
-#define NUMBERGUESSGAME_LOG_H
+#ifndef HHSARDUINOCIRCUITADVANCED_LOG_H
+#define HHSARDUINOCIRCUITADVANCED_LOG_H
 
 #include <Arduino.h>
 #include "Globals.h"
-#include "StringUtils.h"\
+#include "StringUtils.h"
 
 /**
  * Log class.
@@ -118,4 +118,4 @@ public:
     static void setDebug(bool debug);
 };
 
-#endif //NUMBERGUESSGAME_LOG_H
+#endif //HHSARDUINOCIRCUITADVANCED_LOG_H
