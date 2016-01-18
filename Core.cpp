@@ -37,12 +37,6 @@ void Core::setup() {
     // Initialize the logger
     Log::init();
 
-    // Enable the serial connection for multiplayer
-    con.begin(SERIAL_MULTIPLAYER_BAUD);
-
-    // Set the proper stream in the packet handler
-    PacketHandler::setConnectionStream(con);
-
     // Randomize the random seed
     Random::randomize();
 
@@ -51,23 +45,13 @@ void Core::setup() {
         LedManager::screenLeds[i].setupPin();
 
     // Set up all other LEDs
-    LedManager::greenLed.setupPin();
-    LedManager::redLed.setupPin();
     LedManager::statusLed.setupPin();
 
     // Set up the button pin
     ButtonManager::button.setupPin();
 
-    // Show a startup animation
-    playStartupAnimation();
-
-    // Show a success message
-
     // The device has been started, update the flag
     this->started = true;
-
-    // Connect to the other Arduino
-    connect();
 }
 
 void Core::loop() {
