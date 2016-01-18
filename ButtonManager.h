@@ -19,9 +19,14 @@
 class ButtonManager {
 public:
     /**
-     * Main button instance.
+     * Toggle button instance.
      */
-    static Button button;
+    static Button toggleButton;
+
+    /**
+     * Shift button instance.
+     */
+    static Button shiftButton;
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_BUTTONMANAGER_H

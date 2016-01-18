@@ -8,4 +8,5 @@
 
 #include "ButtonManager.h"
 
-Button ButtonManager::button = Button(0);
+Button ButtonManager::toggleButton = Button(0);
+Button ButtonManager::shiftButton = Button(0);
