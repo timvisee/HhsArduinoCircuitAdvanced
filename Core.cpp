@@ -8,6 +8,7 @@
 
 #include "Core.h"
 #include "ButtonManager.h"
+#include "Log.h"
 
 Core::Core() {
     // Set the started flag
