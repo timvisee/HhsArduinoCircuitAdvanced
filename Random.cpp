@@ -34,8 +34,8 @@ void Random::setSeed(unsigned int seed) {
 }
 
 unsigned int Random::nextIntWithoutSeed() {
-    // Define the base number
-    unsigned int num = 1;
+    // Determine a base number, based on the number of milliseconds the Arduino has run
+    unsigned int num = (unsigned int) (millis() % 9999);
 
     // Semi-randomize the defined number using analog reads
     for(int i = 0; i < 6; i++)
