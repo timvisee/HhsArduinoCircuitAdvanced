@@ -8,10 +8,10 @@
 
 #include "Log.h"
 
-const String Log::INFO_PREFIX = "I> ";
-const String Log::WARNING_PREFIX = "W> ";
-const String Log::ERROR_PREFIX = "E> ";
-const String Log::DEBUG_PREFIX = "D> ";
+const String Log::INFO_PREFIX = "[INFO] ";
+const String Log::WARNING_PREFIX = "[WARN] ";
+const String Log::ERROR_PREFIX = "[ERROR] ";
+const String Log::DEBUG_PREFIX = "[DEBUG] ";
 bool Log::logDebug = false;
 bool Log::logInit = false;
 
