@@ -18,6 +18,15 @@
 class Random {
 public:
     /**
+     * Get a random number, from zero to the specified maximum number. The maximum number is excluded.
+     *
+     * @param max Maximum number (excluded).
+     *
+     * @return A random number.
+     */
+    static int nextInt(int max);
+
+    /**
      * Get a random number, from the specified minimum number to the specified maximum number.
      * The maximum number is excluded.
      *
@@ -29,13 +38,11 @@ public:
     static int nextInt(int min, int max);
 
     /**
-     * Get a random number, from zero to the specified maximum number. The maximum number is excluded.
+     * Get a random boolean.
      *
-     * @param max Maximum number (excluded).
-     *
-     * @return A random number.
+     * @return A random boolean.
      */
-    static int nextInt(int max);
+    static bool nextBool();
 
     /**
      * Randomize the current random seed.

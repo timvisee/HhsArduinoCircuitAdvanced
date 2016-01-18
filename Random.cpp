@@ -16,6 +16,10 @@ int Random::nextInt(int min, int max) {
     return (int) random((long) min, (long) max);
 }
 
+bool Random::nextBool() {
+    return nextInt(0, 2) == 0;
+}
+
 void Random::randomize() {
     setSeed(Random::nextIntWithoutSeed());
 }
