@@ -9,6 +9,7 @@
 #include "Core.h"
 #include "ButtonManager.h"
 #include "Log.h"
+#include "Random.h"
 
 Core::Core() {
     // Set the started flag
