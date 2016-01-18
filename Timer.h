@@ -6,8 +6,8 @@
  * @website http://timvisee.com/
  */
 
-#ifndef NUMBERGUESSGAME_TIMER_H
-#define NUMBERGUESSGAME_TIMER_H
+#ifndef HHSARDUINOCIRCUITADVANCED_TIMER_H
+#define HHSARDUINOCIRCUITADVANCED_TIMER_H
 
 #include <Arduino.h>
 
@@ -85,4 +85,4 @@ public:
     void stop();
 };
 
-#endif //NUMBERGUESSGAME_TIMER_H
+#endif //HHSARDUINOCIRCUITADVANCED_TIMER_H
