@@ -27,6 +27,11 @@ public:
      * Output LED instance.
      */
     static Led outputLed;
+
+    /**
+     * Status LED instance.
+     */
+    static Led statusLed;
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_LEDMANAGER_H

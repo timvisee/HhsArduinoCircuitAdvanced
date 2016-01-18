@@ -19,8 +19,9 @@ Core::Core() {
     for(int i = 0; i < LED_INPUT_COUNT; i++)
         LedManager::inputLeds[i] = Led(LED_INPUT_PIN[i], LED_INPUT_ANALOG);
 
-    // Set up the output LED
+    // Set up the output and status LEDs
     LedManager::outputLed = Led(LED_OUTPUT_PIN, LED_OUTPUT_ANALOG);
+    LedManager::statusLed = Led(Led::STATUS_LED_PIN, Led::STATUS_LED_ANALOG);
 
     // Initialize the button
     ButtonManager::button = Button(BUTTON_PIN);
