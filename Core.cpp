@@ -41,14 +41,16 @@ void Core::setup() {
     Random::randomize();
 
     // Set up the answer LED pins
-    for(int i = 0; i < SCREEN_LED_COUNT; i++)
-        LedManager::screenLeds[i].setupPin();
+    for(int i = 0; i < LED_INPUT_COUNT; i++)
+        LedManager::inputLeds[i].setupPin();
 
-    // Set up all other LEDs
+    // Set up the output and status LEDs
+    LedManager::outputLed.setupPin();
     LedManager::statusLed.setupPin();
 
-    // Set up the button pin
-    ButtonManager::button.setupPin();
+    // Set up the toggle and shift button
+    ButtonManager::toggleButton.setupPin();
+    ButtonManager::shiftButton.setupPin();
 
     // The device has been started, update the flag
     this->started = true;
