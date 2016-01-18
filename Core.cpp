@@ -53,6 +53,10 @@ void Core::setup() {
     ButtonManager::toggleButton.setupPin();
     ButtonManager::shiftButton.setupPin();
 
+    // Randomize the state of the input LEDs
+    for(int i = 0; i < LED_INPUT_COUNT; i++)
+        LedManager::inputLeds->setState(Random::nextBool());
+
     // The device has been started, update the flag
     this->started = true;
 }
