@@ -11,6 +11,7 @@
 #include "Log.h"
 #include "Random.h"
 #include "Timer.h"
+#include "MemoryManager.h"
 
 Core::Core() {
     // Set the started flag
