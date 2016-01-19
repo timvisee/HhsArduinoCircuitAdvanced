@@ -18,6 +18,11 @@
 const bool DEBUG = true;
 
 /**
+ * Memory update timer, in milliseconds.
+ */
+const int MEMORY_REPORT_INTERVAL = 2500;
+
+/**
  * The number of LEDs available as input.
  */
 const int LED_INPUT_COUNT = 4;
