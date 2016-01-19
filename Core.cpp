@@ -316,15 +316,16 @@ void Core::loop() {
  */
 void Core::updateLogic() {
     // Update the screen LEDs
-    for(short i = 0; i < SCREEN_LED_COUNT; i++)
-        LedManager::screenLeds[i].update();
+    for(short i = 0; i < LED_INPUT_COUNT; i++)
+        LedManager::inputLeds[i].update();
 
-    // Update the green and red LED
-    LedManager::greenLed.update();
-    LedManager::redLed.update();
+    // Update the output and status LEDs
+    LedManager::outputLed.update();
+    LedManager::statusLed.update();
 
-    // Update the button state
-    ButtonManager::button.update();
+    // Update the toggle and shift button states
+    ButtonManager::toggleButton.update();
+    ButtonManager::shiftButton.update();
 
     // Update the memory manager
     MemoryManager::update();
