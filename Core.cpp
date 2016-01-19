@@ -328,24 +328,6 @@ void Core::updateLogic() {
 
     // Update the memory manager
     MemoryManager::update();
-
-    // Only update the following if the device is started
-    if(!this->started)
-        return;
-
-    // Handle received data from the multiplayer connection
-    // TODO: Only if multiplayer is enabled?
-    while(con.available()) {
-        // Enable the activity light
-        LedManager::statusLed.setState(true);
-
-        // Handle the new data
-        while(con.available())
-            PacketHandler::receive((char) con.read());
-
-        // Disable the activity light
-        LedManager::statusLed.setState(false);
-    }
 }
 
 /**
