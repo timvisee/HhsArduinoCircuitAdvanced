@@ -8,10 +8,8 @@
 
 #include "Core.h"
 #include "ButtonManager.h"
-#include "Log.h"
 #include "Random.h"
 #include "Timer.h"
-#include "MemoryManager.h"
 
 Core::Core() {
     // Set the flag defaults
@@ -40,9 +38,6 @@ Core::Core() {
 void Core::setup() {
     // Initial startup delay
     delay(200);
-
-    // Initialize the logger
-    Log::init();
 
     // Randomize the random seed
     Random::randomize();
@@ -101,21 +96,22 @@ void Core::loop() {
  * Update method, should be called often to update things like the animation controllers of the LEDs.
  */
 void Core::updateLogic() {
-    // Check whether the input mode is enabled
-    if(isInputMode()) {
-        // Show the states of the LEDs until the selected LED
-        for(uint8_t i = 0; i < min(LedManager::getSelectedLedIndex() + 1, LED_INPUT_COUNT); i++)
-            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
 
-        // Pulse the rest of the LEDs
-        for(uint8_t i = LedManager::getSelectedLedIndex() + 1; i < LED_INPUT_COUNT; i++)
-            LedManager::inputLeds[i].fade((uint8_t) Random::nextInt(256), 1);
-
-    } else {
-        // Show the states of each LED
-        for(uint8_t i = 0; i < LED_INPUT_COUNT; i++)
-            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
-    }
+//    // Check whether the input mode is enabled
+//    if(isInputMode()) {
+//        // Show the states of the LEDs until the selected LED
+//        for(uint8_t i = 0; i < min(LedManager::getSelectedLedIndex() + 1, LED_INPUT_COUNT); i++)
+//            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
+//
+//        // Pulse the rest of the LEDs
+//        for(uint8_t i = LedManager::getSelectedLedIndex() + 1; i < LED_INPUT_COUNT; i++)
+//            LedManager::inputLeds[i].fade((uint8_t) Random::nextInt(256), 1);
+//
+//    } else {
+//        // Show the states of each LED
+//        for(uint8_t i = 0; i < LED_INPUT_COUNT; i++)
+//            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
+//    }
 
     // Update the screen LEDs
     for(short i = 0; i < LED_INPUT_COUNT; i++)
@@ -128,9 +124,6 @@ void Core::updateLogic() {
     // Update the toggle and shift button states
     ButtonManager::toggleButton.update();
     ButtonManager::shiftButton.update();
-
-    // Update the memory manager
-    MemoryManager::update();
 }
 
 /**

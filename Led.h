@@ -84,6 +84,26 @@ private:
      */
     uint8_t brightness;
 
+    /**
+     * Flag whether the pulse mode is enabled or not.
+     */
+    bool pulse;
+
+    /**
+     * The minimum pulse brightness.
+     */
+    uint8_t pulseMin;
+
+    /**
+     * The maximum pulse brightness.
+     */
+    uint8_t pulseMax;
+
+    /**
+     * The pulse duration, in miliseconds.
+     */
+    int pulseDuration;
+
 public:
     /**
      * Constructor.
@@ -204,6 +224,11 @@ public:
      * @return Time left for fading.
      */
     int getFadeTimeLeft();
+
+    /**
+     * Calculate the dynamic duration for a pulse.
+     */
+    int calculatePulseDuration(int from, int to);
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_LED_H
