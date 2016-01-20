@@ -23,6 +23,11 @@ private:
      */
     static uint8_t selectedLedIndex;
 
+    /**
+     * Defines the states of each input LED.
+     */
+    static bool *inputStates;
+
 public:
     /**
      * InputLED instances.
@@ -57,6 +62,28 @@ public:
      * Select the next LED.
      */
     static void nextLed();
+
+    /**
+     * Get the input state of a specific input LED.
+     *
+     * @return Input state.
+     */
+    static bool getInputState(uint8_t index);
+
+    /**
+     * Set the input state of a specific input LED.
+     *
+     * @param index Input LED index.
+     * @param state Input state.
+     */
+    static void setInputState(uint8_t index, bool state);
+
+    /**
+     * Set the input state of all input LEDs.
+     *
+     * @param state Input state.
+     */
+    static void setInputStates(bool state);
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_LEDMANAGER_H

@@ -8,6 +8,8 @@
 
 #include "LedManager.h"
 
+// Initializations
+bool *LedManager::inputStates = new bool[LED_INPUT_COUNT];
 Led *LedManager::inputLeds = new Led[LED_INPUT_COUNT];
 Led LedManager::outputLed = Led(Led::STATUS_LED_PIN, Led::STATUS_LED_ANALOG);
 Led LedManager::statusLed = Led(Led::STATUS_LED_PIN, Led::STATUS_LED_ANALOG);
@@ -27,4 +29,18 @@ void LedManager::nextLed() {
     // Make sure the selection doesn't go out of bounds
     if(LedManager::selectedLedIndex >= LED_INPUT_COUNT || LedManager::selectedLedIndex < 0)
         LedManager::selectedLedIndex = 0;
+}
+
+bool LedManager::getInputState(uint8_t index) {
+    return LedManager::inputStates[index];
+}
+
+void LedManager::setInputState(uint8_t index, bool state) {
+    LedManager::inputStates[index] = state;
+}
+
+void LedManager::setInputStates(bool state) {
+    // Use a for loop to set the state of each LED
+    for(int i = 0; i < LED_INPUT_COUNT; i++)
+        LedManager::setInputState(i, state);
 }
