@@ -79,6 +79,13 @@ public:
     static void setInputState(uint8_t index, bool state);
 
     /**
+     * Toggle the state of the specified input LED.
+     *
+     * @param index Input LED index.
+     */
+    static void toggleInputState(uint8_t index);
+
+    /**
      * Set the input state of all input LEDs.
      *
      * @param state Input state.
