@@ -28,9 +28,9 @@ Led::Led(uint8_t pin, bool analogMode) {
     this->toTime = -1;
     this->brightness = 0;
     this->pulsing = false;
-    this->pulseMin = 25;
-    this->pulseMax = 80;
-    this->pulseDuration = 1000;
+    this->pulseMin = 10; // TODO: Define this default value somewhere in a constant
+    this->pulseMax = 200; // TODO: Define this default value somewhere in a constant
+    this->pulseDuration = 750; // TODO: Define this default value somewhere in a constant
 
     // Set the LED pin
     this->pin = pin;
@@ -65,28 +65,6 @@ void Led::update() {
     if(!this->inAnalogMode())
         return;
 
-    // Handle pulsing
-    if(this->pulsing) {
-        // Make sure the brightness target is valid for this pulse
-        if(this->toBrightness != this->pulseMin && this->toBrightness != this->pulseMax) {
-            // Reset the brightness target to the closest pulse target
-            if(this->pulseMin >= this->brightness)
-                this->fade(this->pulseMin, calculatePulseDuration(this->brightness, this->pulseMin));
-
-            else
-                this->fade(this->pulseMax, calculatePulseDuration(this->brightness, this->pulseMax));
-        }
-
-        // Make sure the LEDs keep fading
-        if(!isFading()) {
-            // If one of the pulse bounds is reached, fade back in the other direction
-            if(this->brightness <= this->pulseMin)
-                this->fade(this->pulseMax, calculatePulseDuration(this->brightness, this->pulseMax));
-            else
-                this->fade(this->pulseMin, calculatePulseDuration(this->brightness, this->pulseMin));
-        }
-    }
-
     // Get the time delta
     unsigned long timeDelta = (unsigned long) (this->toTime - this->fromTime);
 
@@ -105,6 +83,24 @@ void Led::update() {
     // Hotfix for invalid brightnesses when fading has ended
     if(this->toTime <= millis())
         brightness = this->toBrightness;
+
+    // Handle pulsing
+    if(this->pulsing) {
+        // Calculate the pulse delta
+        int pulseBrightnessDelta = this->pulseMax - this->pulseMin;
+
+        // Calculate the time part
+        double timePart = millis() % this->pulseDuration;
+
+        // Properly determine the time part when fading out
+        if(timePart > this->pulseDuration / 2)
+            timePart = (timePart - this->pulseDuration) * -1;
+
+        // Calculate and set the brightness
+        brightness = (uint8_t)
+                (((double) this->pulseMin + pulseBrightnessDelta)
+                 * (timePart / (this->pulseDuration / 2.0)));
+    }
 
     // Set the brightness of the led
     this->setBrightness(brightness);
