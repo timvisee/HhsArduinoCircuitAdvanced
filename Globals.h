@@ -68,6 +68,21 @@ const int BUTTON_JITTER_DELAY = 50;
 const int LED_TOGGLE_SHOW_DURATION = 1000;
 
 /**
+ * Defines the minimum brightness of a pulse.
+ */
+const uint8_t PULSE_BRIGHTNESS_MIN = 30;
+
+/**
+ * Defines the maximum brightness of a pulse.
+ */
+const uint8_t PULSE_BRIGHTNESS_MAX = 80;
+
+/**
+ * Defines the pulse duration.
+ */
+const int PULSE_DURATION = 750;
+
+/**
  * The USB serial baud rate.
  */
 const int SERIAL_USB_BAUD = 19200;

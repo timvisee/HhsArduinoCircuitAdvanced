@@ -7,6 +7,7 @@
  */
 
 #include "Led.h"
+#include "Globals.h"
 
 const uint8_t Led::BRIGHTNESS_LOW = 0;
 const uint8_t Led::BRIGHTNESS_HIGH = 255;
@@ -28,9 +29,9 @@ Led::Led(uint8_t pin, bool analogMode) {
     this->toTime = -1;
     this->brightness = 0;
     this->pulsing = false;
-    this->pulseMin = 10; // TODO: Define this default value somewhere in a constant
-    this->pulseMax = 200; // TODO: Define this default value somewhere in a constant
-    this->pulseDuration = 750; // TODO: Define this default value somewhere in a constant
+    this->pulseMin = PULSE_BRIGHTNESS_MIN;
+    this->pulseMax = PULSE_BRIGHTNESS_MAX;
+    this->pulseDuration = PULSE_DURATION;
 
     // Set the LED pin
     this->pin = pin;
