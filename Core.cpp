@@ -65,14 +65,17 @@ void Core::setup() {
 }
 
 void Core::loop() {
-    // Enter the input mode if the shift button is pressed
-    if(ButtonManager::shiftButton.isPressedOnce()) {
-        // Set the input mode flag
-        this->inputMode = true;
-    }
+    // Start the input mode if the shift button is pressed
+    if(ButtonManager::shiftButton.isPressedOnce())
+        startInputMode();
 
-    // Reset the input mode flag
-    this->inputMode = false;
+    // Handle the input mode logic, loop as long as this mode is enabled
+    while(isInputMode()) {
+        // TODO: Handle all input interaction here.
+
+        // Update all logic
+        updateLogic();
+    }
 
     // Update everything
     updateLogic();
