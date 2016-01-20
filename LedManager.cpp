@@ -41,6 +41,6 @@ void LedManager::setInputState(uint8_t index, bool state) {
 
 void LedManager::setInputStates(bool state) {
     // Use a for loop to set the state of each LED
-    for(int i = 0; i < LED_INPUT_COUNT; i++)
+    for(uint8_t i = 0; i < LED_INPUT_COUNT; i++)
         LedManager::setInputState(i, state);
 }
