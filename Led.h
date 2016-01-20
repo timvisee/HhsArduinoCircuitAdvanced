@@ -100,7 +100,7 @@ private:
     uint8_t pulseMax;
 
     /**
-     * The pulse duration, in miliseconds.
+     * The pulse duration, in milliseconds.
      */
     int pulseDuration;
 

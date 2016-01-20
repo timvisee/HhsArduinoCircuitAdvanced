@@ -99,17 +99,17 @@ void Core::updateLogic() {
     // Check whether the input mode is enabled
     if(isInputMode()) {
         // Show the states of the LEDs until the selected LED
-        for(uint8_t i = 0; i < min(LedManager::getSelectedLedIndex() + 1, LED_INPUT_COUNT); i++) {
-            // Disable the pulsing mode
-            LedManager::inputLeds[i].setPulsing(false);
+        for(uint8_t i = 0; i < LED_INPUT_COUNT; i++) {
+            // Pulse if the current LED isn't selected, show the LED state in the other case
+            if(LedManager::getSelectedLedIndex() == i) {
+                // Disable the pulsing mode
+                LedManager::inputLeds[i].setPulsing(false);
 
-            // Set the state
-            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
+                // Set the state
+                LedManager::inputLeds[i].setState(LedManager::getInputState(i));
+            } else
+                LedManager::inputLeds[i].setPulsing(true);
         }
-
-        // Pulse the rest of the LEDs
-        for(uint8_t i = LedManager::getSelectedLedIndex() + 1; i < LED_INPUT_COUNT; i++)
-            LedManager::inputLeds[i].setPulsing(true);
 
     } else {
         // Show the states of each LED
