@@ -9,6 +9,7 @@
 #include "LedManager.h"
 
 // Initializations
+uint8_t LedManager::selectedLedIndex = 0;
 bool *LedManager::inputStates = new bool[LED_INPUT_COUNT];
 Led *LedManager::inputLeds = new Led[LED_INPUT_COUNT];
 Led LedManager::outputLed = Led(Led::STATUS_LED_PIN, Led::STATUS_LED_ANALOG);
