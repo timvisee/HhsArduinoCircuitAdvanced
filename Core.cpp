@@ -85,10 +85,9 @@ void Core::loop() {
         }
 
         // Toggle the state of the selected LED if the toggle button is pressed
-        if(ButtonManager::toggleButton.isPressedOnce()) {
+        if(ButtonManager::toggleButton.isPressedOnce())
             // Toggle the state of the selected input LED
             LedManager::toggleCurrentInputState();
-        }
 
         // Update all logic
         updateLogic();
@@ -102,6 +101,21 @@ void Core::loop() {
  * Update method, should be called often to update things like the animation controllers of the LEDs.
  */
 void Core::updateLogic() {
+
+    if(isInputMode()) {
+        for(uint8_t i = 0; i < min(LedManager::getSelectedLedIndex() + 1, LED_INPUT_COUNT); i++)
+            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
+
+        for(uint8_t i = LedManager::getSelectedLedIndex(); i < LED_INPUT_COUNT; i++)
+            LedManager::inputLeds[i].fade((uint8_t) Random::nextInt(256), 1);
+
+    } else {
+        for(uint8_t i = 0; i < LED_INPUT_COUNT; i++)
+            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
+    }
+
+
+
     // Update the screen LEDs
     for(short i = 0; i < LED_INPUT_COUNT; i++)
         LedManager::inputLeds[i].update();
