@@ -80,10 +80,6 @@ void Led::update() {
     // Determine the brightness value
     uint8_t brightness = (uint8_t) (this->fromBrightness + (brightnessDelta * factor));
 
-    // Hotfix for invalid brightnesses when fading has ended
-    if(this->toTime <= millis())
-        brightness = this->toBrightness;
-
     // Handle pulsing
     if(this->pulsing && !isFading()) {
         // Calculate the pulse delta
