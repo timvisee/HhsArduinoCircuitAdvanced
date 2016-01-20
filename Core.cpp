@@ -86,7 +86,8 @@ void Core::loop() {
 
         // Toggle the state of the selected LED if the toggle button is pressed
         if(ButtonManager::toggleButton.isPressedOnce()) {
-            // TODO: Toggle the selected LED here.
+            // Toggle the state of the selected input LED
+            LedManager::toggleCurrentInputState();
         }
 
         // Update all logic
