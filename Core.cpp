@@ -71,7 +71,20 @@ void Core::loop() {
 
     // Handle the input mode logic, loop as long as this mode is enabled
     while(isInputMode()) {
-        // TODO: Handle all input interaction here.
+        // Shift to the next LED if the shift button is pressed
+        if(ButtonManager::shiftButton.isPressedOnce()) {
+            // Select the next LED
+            LedManager::nextLed();
+
+            // Disable the input mode if the first LED is selected again, because the selection went out of bound
+            if(LedManager::getSelectedLedIndex() == 0)
+                stopInputMode();
+        }
+
+        // Toggle the state of the selected LED if the toggle button is pressed
+        if(ButtonManager::toggleButton.isPressedOnce()) {
+            // TODO: Toggle the selected LED here.
+        }
 
         // Update all logic
         updateLogic();
