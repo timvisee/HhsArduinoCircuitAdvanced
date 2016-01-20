@@ -11,7 +11,6 @@
 
 #include <Arduino.h>
 #include "Globals.h"
-#include "StringUtils.h"
 
 /**
  * Log class.
