@@ -73,6 +73,13 @@ public:
      * Stop the input mode.
      */
     void stopInputMode();
+
+    /**
+     * Evaluate the circuit logic, return the result.
+     *
+     * @return True if correct, false if not.
+     */
+    bool evaluateCircuit();
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_CORE_H

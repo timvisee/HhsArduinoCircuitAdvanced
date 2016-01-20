@@ -96,7 +96,6 @@ void Core::loop() {
  * Update method, should be called often to update things like the animation controllers of the LEDs.
  */
 void Core::updateLogic() {
-
     // Check whether the input mode is enabled
     if(isInputMode()) {
         // Show the states of the LEDs until the selected LED
@@ -121,6 +120,9 @@ void Core::updateLogic() {
     // Update the screen LEDs
     for(short i = 0; i < LED_INPUT_COUNT; i++)
         LedManager::inputLeds[i].update();
+
+    // Evaluate the circuit and print the result
+    LedManager::outputLed.setState(evaluateCircuit());
 
     // Update the output and status LEDs
     LedManager::outputLed.update();
@@ -164,4 +166,15 @@ void Core::startInputMode() {
 void Core::stopInputMode() {
     // Reset the input mode flag
     this->inputMode = false;
+}
+
+bool Core::evaluateCircuit() {
+    // Gather the input states
+    bool i1 = LedManager::getInputState(0);
+    bool i2 = LedManager::getInputState(1);
+    bool i3 = LedManager::getInputState(2);
+    bool i4 = LedManager::getInputState(3);
+
+    // Do the logic, return the result
+    return !((i4 || i3) || (i2 && !i1));
 }
