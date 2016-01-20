@@ -51,7 +51,7 @@ public:
      *
      * @param index LED index.
      */
-    static void setSelectedLedIndex(int index);
+    static void setSelectedLedIndex(uint8_t index);
 
     /**
      * Select the next LED.

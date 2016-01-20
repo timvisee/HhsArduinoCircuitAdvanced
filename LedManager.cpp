@@ -16,7 +16,7 @@ uint8_t LedManager::getSelectedLedIndex() {
     return LedManager::selectedLedIndex;
 }
 
-void LedManager::setSelectedLedIndex(int index) {
+void LedManager::setSelectedLedIndex(uint8_t index) {
     LedManager::selectedLedIndex = index;
 }
 
