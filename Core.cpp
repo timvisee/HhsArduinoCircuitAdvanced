@@ -32,6 +32,9 @@ Core::Core() {
     // Initialize the buttons
     ButtonManager::toggleButton = Button(BUTTON_TOGGLE_PIN);
     ButtonManager::shiftButton = Button(BUTTON_SHIFT_PIN);
+
+    // Set the input LED states
+    LedManager::setInputStates(false);
 }
 
 void Core::setup() {
