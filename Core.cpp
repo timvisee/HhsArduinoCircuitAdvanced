@@ -97,21 +97,26 @@ void Core::loop() {
  */
 void Core::updateLogic() {
 
-//    // Check whether the input mode is enabled
-//    if(isInputMode()) {
-//        // Show the states of the LEDs until the selected LED
-//        for(uint8_t i = 0; i < min(LedManager::getSelectedLedIndex() + 1, LED_INPUT_COUNT); i++)
-//            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
-//
-//        // Pulse the rest of the LEDs
-//        for(uint8_t i = LedManager::getSelectedLedIndex() + 1; i < LED_INPUT_COUNT; i++)
-//            LedManager::inputLeds[i].fade((uint8_t) Random::nextInt(256), 1);
-//
-//    } else {
-//        // Show the states of each LED
-//        for(uint8_t i = 0; i < LED_INPUT_COUNT; i++)
-//            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
-//    }
+    // Check whether the input mode is enabled
+    if(isInputMode()) {
+        // Show the states of the LEDs until the selected LED
+        for(uint8_t i = 0; i < min(LedManager::getSelectedLedIndex() + 1, LED_INPUT_COUNT); i++) {
+            // Disable the pulsing mode
+            LedManager::inputLeds[i].setPulsing(false);
+
+            // Set the state
+            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
+        }
+
+        // Pulse the rest of the LEDs
+        for(uint8_t i = LedManager::getSelectedLedIndex() + 1; i < LED_INPUT_COUNT; i++)
+            LedManager::inputLeds[i].setPulsing(true);
+
+    } else {
+        // Show the states of each LED
+        for(uint8_t i = 0; i < LED_INPUT_COUNT; i++)
+            LedManager::inputLeds[i].setPulsing(false);
+    }
 
     // Update the screen LEDs
     for(short i = 0; i < LED_INPUT_COUNT; i++)
