@@ -85,7 +85,7 @@ void Led::update() {
         brightness = this->toBrightness;
 
     // Handle pulsing
-    if(this->pulsing) {
+    if(this->pulsing && !isFading()) {
         // Calculate the pulse delta
         int pulseBrightnessDelta = this->pulseMax - this->pulseMin;
 
@@ -168,6 +168,19 @@ bool Led::isPulsing() {
 }
 
 void Led::setPulsing(bool pulsing) {
+    // Properly fade into pulsing mode
+    if(!this->pulsing && pulsing) {
+        // Determine the remaining pulse time
+        int pulseTimeRemaining = (int) (this->pulseDuration - (millis() % this->pulseDuration));
+
+        // Fade to the nearest pulse brightness bound
+        if(pulseTimeRemaining < this->pulseDuration / 2)
+            this->fade(this->pulseMin, pulseTimeRemaining);
+        else
+            this->fade(this->pulseMax, pulseTimeRemaining - (this->pulseDuration / 2));
+    }
+
+    // Set the pulsing flag
     this->pulsing = pulsing;
 }
 
