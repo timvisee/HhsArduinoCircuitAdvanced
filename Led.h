@@ -87,7 +87,7 @@ private:
     /**
      * Flag whether the pulse mode is enabled or not.
      */
-    bool pulse;
+    bool pulsing;
 
     /**
      * The minimum pulse brightness.
@@ -224,6 +224,62 @@ public:
      * @return Time left for fading.
      */
     int getFadeTimeLeft();
+
+    /**
+     * Check whether the LED is pulsing.
+     *
+     * @return True if pulsing, false if not.
+     */
+    bool isPulsing();
+
+    /**
+     * Set whether the LED is pulsing.
+     *
+     * @param pulsing True if pulsing, false if not.
+     */
+    void setPulsing(bool pulsing);
+
+    /**
+     * Get the minimum pulsing brightness.
+     *
+     * @return Minimum pulsing brightness.
+     */
+    uint8_t getPulseMinimum();
+
+    /**
+     * Set the minimum pulsing brightness.
+     *
+     * @param pulseMin Minimum pulsing brightness.
+     */
+    void setPulseMinimum(uint8_t pulseMin);
+
+    /**
+     * Get the maximum pulsing brightness.
+     *
+     * @return Maximum pulsing brightness.
+     */
+    uint8_t getPulseMaximum();
+
+    /**
+     * Set the maximum pulsing brightness.
+     *
+     * @param pulseMax Maximum pulsing brightness.
+     */
+    void setPulseMaximum(uint8_t pulseMax);
+
+    /**
+     * Get the pulse duration in milliseconds.
+     *
+     * @return Pulse duration in milliseconds.
+     */
+    int getPulseDuration();
+
+    /**
+     * Set the pulse duration in milliseconds.
+     *
+     * @param duration Pulse duration in milliseconds.
+     */
+    void setPulseDuration(int duration);
 
     /**
      * Calculate the dynamic duration for a pulse.

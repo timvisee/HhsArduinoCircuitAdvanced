@@ -27,7 +27,7 @@ Led::Led(uint8_t pin, bool analogMode) {
     this->toBrightness = 0;
     this->toTime = -1;
     this->brightness = 0;
-    this->pulse = false;
+    this->pulsing = false;
     this->pulseMin = 25;
     this->pulseMax = 80;
     this->pulseDuration = 1000;
@@ -66,7 +66,7 @@ void Led::update() {
         return;
 
     // Handle pulsing
-    if(this->pulse) {
+    if(this->pulsing) {
         // Make sure the brightness target is valid for this pulse
         if(this->toBrightness != this->pulseMin && this->toBrightness != this->pulseMax) {
             // Reset the brightness target to the closest pulse target
@@ -166,6 +166,37 @@ uint8_t Led::getToBrightness() {
 
 int Led::getFadeTimeLeft() {
     return (int) (this->toTime - millis());
+}
+bool Led::isPulsing() {
+    return this->pulsing;
+}
+
+void Led::setPulsing(bool pulsing) {
+    this->pulsing = pulsing;
+}
+
+uint8_t Led::getPulseMinimum() {
+    return this->pulseMin;
+}
+
+void Led::setPulseMinimum(uint8_t pulseMin) {
+    this->pulseMin = pulseMin;
+}
+
+uint8_t Led::getPulseMaximum() {
+    return this->pulseMin;
+}
+
+void Led::setPulseMaximum(uint8_t pulseMax) {
+    this->pulseMax = pulseMax;
+}
+
+int Led::getPulseDuration() {
+    return this->pulseDuration;
+}
+
+void Led::setPulseDuration(int duration) {
+    this->pulseDuration = duration;
 }
 
 int Led::calculatePulseDuration(int from, int to) {
