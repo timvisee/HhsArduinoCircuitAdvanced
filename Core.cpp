@@ -120,6 +120,14 @@ bool Core::isInputMode() {
     return this->inputMode;
 }
 
-void Core::setInputMode(bool inputMode) {
-    this->inputMode = inputMode;
+void Core::startInputMode() {
+    // Set the input mode flag
+    this->inputMode = true;
+
+    // TODO: Reset the selected LED index.
+}
+
+void Core::stopInputMode() {
+    // Reset the input mode flag
+    this->inputMode = false;
 }

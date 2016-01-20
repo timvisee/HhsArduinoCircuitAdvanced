@@ -65,11 +65,14 @@ public:
     bool isInputMode();
 
     /**
-     * Set the input mode of the device.
-     *
-     * @param inputMode True to enable input mode, false if not.
+     * Start the input mode.
      */
-    void setInputMode(bool inputMode);
+    void startInputMode();
+
+    /**
+     * Stop the input mode.
+     */
+    void stopInputMode();
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_CORE_H
