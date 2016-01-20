@@ -14,8 +14,9 @@
 #include "MemoryManager.h"
 
 Core::Core() {
-    // Set the started flag
+    // Set the flag defaults
     this->started = false;
+    this->inputMode = false;
 
     // Initialize the input LED array
     LedManager::inputLeds = new Led[LED_INPUT_COUNT];
@@ -66,8 +67,12 @@ void Core::setup() {
 void Core::loop() {
     // Enter the input mode if the shift button is pressed
     if(ButtonManager::shiftButton.isPressedOnce()) {
-        // TODO: Enable the input mode.
+        // Set the input mode flag
+        this->inputMode = true;
     }
+
+    // Reset the input mode flag
+    this->inputMode = false;
 
     // Update everything
     updateLogic();
@@ -109,4 +114,12 @@ void Core::smartDelay(int delay) {
     // Call the update method until the timer has passed the specified delay
     while(!timer.isFinished())
         updateLogic();
+}
+
+bool Core::isInputMode() {
+    return this->inputMode;
+}
+
+void Core::setInputMode(bool inputMode) {
+    this->inputMode = inputMode;
 }

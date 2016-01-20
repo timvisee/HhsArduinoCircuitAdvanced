@@ -25,6 +25,12 @@ private:
      */
     bool started;
 
+    /**
+     * Flag whether we're currently in the input mode.
+     * True if we're in the input mode, false if not.
+     */
+    bool inputMode;
+
 public:
     /**
      * Constructor.
@@ -50,6 +56,20 @@ public:
      * A smart delay method, to efficiently execute the update call while waiting.
      */
     void smartDelay(int delay);
+
+    /**
+     * Check whether the device is currently in input mode.
+     *
+     * @return True if in input mode, false otherwise.
+     */
+    bool isInputMode();
+
+    /**
+     * Set the input mode of the device.
+     *
+     * @param inputMode True to enable input mode, false if not.
+     */
+    void setInputMode(bool inputMode);
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_CORE_H
