@@ -106,7 +106,7 @@ void Core::updateLogic() {
         for(uint8_t i = 0; i < min(LedManager::getSelectedLedIndex() + 1, LED_INPUT_COUNT); i++)
             LedManager::inputLeds[i].setState(LedManager::getInputState(i));
 
-        for(uint8_t i = LedManager::getSelectedLedIndex(); i < LED_INPUT_COUNT; i++)
+        for(uint8_t i = LedManager::getSelectedLedIndex() + 1; i < LED_INPUT_COUNT; i++)
             LedManager::inputLeds[i].fade((uint8_t) Random::nextInt(256), 1);
 
     } else {
