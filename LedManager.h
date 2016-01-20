@@ -17,6 +17,12 @@
  * Led manager class.
  */
 class LedManager {
+private:
+    /**
+     * Defines the index of the selected LED.
+     */
+    static uint8_t selectedLedIndex;
+
 public:
     /**
      * InputLED instances.
@@ -32,6 +38,25 @@ public:
      * Status LED instance.
      */
     static Led statusLed;
+
+    /**
+     * Get the index of the selected LED.
+     *
+     * @return The index of the selected LED.
+     */
+    static uint8_t getSelectedLedIndex();
+
+    /**
+     * Set the index of the selected LED.
+     *
+     * @param index LED index.
+     */
+    static void setSelectedLedIndex(int index);
+
+    /**
+     * Select the next LED.
+     */
+    static void nextLed();
 };
 
 #endif //HHSARDUINOCIRCUITADVANCED_LEDMANAGER_H

@@ -125,7 +125,7 @@ void Core::startInputMode() {
     this->inputMode = true;
 
     // Reset the selected LED index
-    this->selectedLedIndex = 0;
+    LedManager::setSelectedLedIndex(0);
 }
 
 void Core::stopInputMode() {
