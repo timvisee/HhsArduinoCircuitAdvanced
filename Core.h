@@ -31,6 +31,11 @@ private:
      */
     bool inputMode;
 
+    /**
+     * Defines the index of the selected LED.
+     */
+    uint8_t selectedLedIndex;
+
 public:
     /**
      * Constructor.
