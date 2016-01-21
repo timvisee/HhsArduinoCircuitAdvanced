@@ -113,8 +113,13 @@ void Core::updateLogic() {
 
     } else {
         // Show the states of each LED
-        for(uint8_t i = 0; i < LED_INPUT_COUNT; i++)
+        for(uint8_t i = 0; i < LED_INPUT_COUNT; i++) {
+            // Disable pulsing
             LedManager::inputLeds[i].setPulsing(false);
+
+            // Set the LED states
+            LedManager::inputLeds[i].setState(LedManager::getInputState(i));
+        }
     }
 
     // Update the screen LEDs
